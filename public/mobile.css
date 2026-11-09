@@ -1,0 +1,255 @@
+body.has-tabbar { background:var(--bg); }
+body.has-tabbar::before { display:none; }
+.network-status { position:fixed; z-index:10000; top:calc(8px + env(safe-area-inset-top)); left:50%; transform:translateX(-50%); width:min(560px,calc(100% - 24px)); display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px 12px 10px 14px; border:1px solid #d7b971; border-radius:14px; background:#fff9e8; box-shadow:0 10px 28px rgba(69,54,22,.18); color:#604d1f; font-size:14px; line-height:1.45; }
+.network-status[hidden] { display:none; }
+.network-status-text { min-width:0; }
+.network-retry { flex:0 0 auto; min-height:44px; border:1px solid #c8a95b; border-radius:10px; padding:6px 10px; background:#fff; color:#604d1f; font:inherit; cursor:pointer; }
+.network-retry:disabled { opacity:.65; cursor:wait; }
+.has-tabbar .topbar { background:var(--surface); border-bottom:1px solid var(--line); box-shadow:none; padding:12px 20px; }
+.has-tabbar .brand { font-size:24px; letter-spacing:-1px; font-weight:750; color:var(--ink); }
+.account-button,.avatar-edit-button { border:0; padding:0; background:none; cursor:pointer; position:relative; }
+.avatar { overflow:hidden; background:var(--brand-soft); color:var(--brand-hover); box-shadow:none; }
+.avatar img { width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;user-select:none; }
+.avatar.large { width:104px;height:104px;font-size:36px; margin:auto; }
+.has-tabbar #content { max-width:780px; padding:20px 18px 120px; }
+.has-tabbar .card { background:#fff;border:1px solid var(--line);box-shadow:0 4px 16px rgba(34,45,55,.025);border-radius:20px;backdrop-filter:none; }
+.has-tabbar h1 { font-size:26px;line-height:1.3;letter-spacing:-.6px; }
+.has-tabbar h2 { font-size:17px; }
+.has-tabbar .btn { box-shadow:none;border-radius:11px;min-height:44px; }
+.has-tabbar .btn.soft { background:var(--surface-soft);color:var(--muted); }
+.has-tabbar .mobile-home-hero { background:var(--role-tint);border-radius:24px;padding:24px 20px;margin-bottom:18px;position:relative;overflow:hidden;gap:12px; }
+.mobile-home-hero h1 { margin:10px 0;overflow-wrap:anywhere; }
+.mobile-home-hero .eyebrow { color:var(--brand);font-size:12px;letter-spacing:.5px; }
+.mobile-home-hero p { font-size:13px;margin-bottom:0; }
+.has-tabbar .work-summary { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;background:none;border:0;padding:0;margin:0 0 22px; }
+.has-tabbar .work-summary>span { display:flex;flex-direction:column;align-items:flex-start;gap:4px;background:white;border:1px solid var(--line);border-radius:16px;padding:14px;font-size:12px;color:var(--muted); }
+.has-tabbar .work-summary b { font-size:26px;line-height:1.3;color:var(--ink);font-variant-numeric:tabular-nums; }
+.has-tabbar .work-section { padding:20px;margin-top:16px; }
+.has-tabbar .work-row { padding:16px 0;gap:12px; }
+.has-tabbar .work-row h3 { font-size:15px;line-height:1.6; }
+.has-tabbar .work-row .btn { flex-shrink:0;font-size:12px; }
+.work-section [data-work-more] > summary { min-height:44px;padding:12px 0;cursor:pointer; }
+.has-tabbar .empty.compact { background:var(--role-light);border-radius:14px;margin-top:12px;padding:28px 16px;color:#7a8589;font-size:13px; }
+.has-tabbar .tabbar { width:calc(100% - 28px);bottom:calc(10px + env(safe-area-inset-bottom));border:1px solid var(--line);background:var(--surface);box-shadow:0 8px 30px #25344312;border-radius:22px;padding:7px; }
+.has-tabbar .tabbar button { min-height:54px;border-radius:16px;font-size:12px;gap:5px; }
+.has-tabbar .tabbar button.active { color:var(--brand);background:var(--role-tint); }
+.has-tabbar .my-identity { background:var(--surface);padding:24px; }
+.avatar-edit-hint { position:absolute;bottom:-5px;left:50%;transform:translateX(-50%);background:#fff;border:1px solid var(--line);border-radius:20px;padding:1px 8px;font-size:12px;white-space:nowrap;color:#57616b; }
+.my-identity-main { gap:18px; }
+.has-tabbar .my-route-card,.has-tabbar .my-feature { border:1px solid var(--line);box-shadow:none;border-radius:18px; }
+.has-tabbar .my-route-icon { background:var(--role-tint);color:var(--brand);border-radius:13px; }
+.logout-button { width:100%;display:flex;justify-content:space-between;align-items:center;margin-top:28px;padding:17px 20px;border:1px solid #ecdfe1;border-radius:16px;background:#fff;color:#b24e5a;font:inherit;cursor:pointer; }
+.my-signature { text-align:center;font-size:12px;color:var(--muted);margin:22px 0; }
+.has-tabbar .profile-hero { background:var(--surface);padding:28px 20px; }
+.profile-hero>.avatar { width:80px;height:80px;font-size:30px;margin:0 auto 16px; }
+.profile-metrics { gap:8px; }
+.profile-metrics>div { min-width:0; }
+.profile-metrics span { font-size:12px; }
+.dialog { border:1px solid var(--line);border-radius:24px;background:#fff;box-shadow:0 24px 90px #182d3226; }
+.dialog input,.dialog textarea { border-radius:12px; }
+.logout-art { width:64px;height:64px;display:grid;place-items:center;background:var(--surface-soft);color:var(--muted);border-radius:20px;font-size:30px;margin:20px auto; }
+.logout-copy { text-align:center;color:var(--muted);font-size:14px;line-height:1.8;margin-bottom:24px; }
+.avatar-editor { text-align:center;padding:16px 0; }
+.avatar-editor p { color:var(--muted);font-size:13px; }
+.avatar-upload { display:block;padding:14px;border-radius:12px;background:var(--brand-soft);color:var(--brand-hover);cursor:pointer; }
+.avatar-upload input { display:block;max-width:100%;margin-top:8px; }
+@media(max-width:480px) {
+ .has-tabbar .topbar { padding:10px 18px; }
+ .has-tabbar .mobile-home-hero { padding:22px 18px; }
+ .mobile-home-hero>div { flex:1;min-width:0; }
+ .mobile-home-hero #refresh-work { padding:8px 10px;min-height:44px; }
+ .has-tabbar .work-section>.row { flex-direction:column;align-items:stretch; }
+ .has-tabbar .profile-actions { display:flex;flex-wrap:wrap;gap:10px; }
+ .has-tabbar .profile-actions .btn { flex:1; }
+ .overlay { align-items:flex-end;padding:12px 12px calc(12px + env(safe-area-inset-bottom)); }
+ .dialog { max-height:88dvh;border-radius:24px;width:100%; }
+ .dlg-actions .btn { min-height:44px;flex:1; }
+}
+@media(prefers-reduced-motion:reduce) { *,*::before,*::after { animation:none!important;transition:none!important; } }
+
+/* Mobile supervision filters and navigation. */
+#home-work { margin: 20px 0; }
+.has-tabbar .supervisor-people-card { padding:16px; margin-bottom:10px; }
+.supervisor-people-tabs { scroll-snap-type:x proximity; overscroll-behavior-x:contain; }
+.supervisor-person-filter { scroll-snap-align:start; cursor:pointer; }
+.has-tabbar .supervisor-person-filter { min-width:124px; max-width:180px; }
+.has-tabbar .supervisor-person-filter { position:relative; padding:12px; gap:10px; border:1px solid transparent; border-radius:16px; background:transparent; box-shadow:none; color:var(--muted); }
+.has-tabbar .supervisor-person-filter .avatar { width:36px; height:36px; background:var(--surface-soft); color:var(--muted); box-shadow:none; font-size:15px; }
+.has-tabbar .supervisor-person-filter b { font-weight:500; font-size:13px; }
+.has-tabbar .supervisor-person-filter i { margin-top:4px; color:var(--muted); font-size:12px; }
+.has-tabbar .supervisor-person-filter.active { background:var(--brand-soft); border-color:var(--brand-line); color:var(--ink); box-shadow:none; }
+.has-tabbar .supervisor-person-filter.active b { font-weight:500; }
+.has-tabbar .supervisor-person-filter.active i { color:var(--muted); }
+.has-tabbar .supervisor-person-filter.active::after { content:""; position:absolute; right:8px; top:8px; width:4px; height:4px; border-radius:50%; background:var(--brand); }
+.has-tabbar .supervisor-person-filter:focus-visible { outline:2px solid var(--brand); outline-offset:2px; }
+.person-all-icon svg { width:20px; height:20px; }
+.has-tabbar .supervisor-goal-filter { padding:5px; border-radius:16px; margin-bottom:16px; }
+.supervisor-status-tabs { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:4px; }
+.has-tabbar .supervisor-status-tabs .btn { min-width:0; padding:10px 3px; font-size:13px; white-space:nowrap; border-radius:12px; }
+.has-tabbar .supervisor-status-tabs .btn.soft { background:transparent; }
+.has-tabbar .tabbar { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+/* 我的：只减轻提示与日常入口的视觉重量，沿用原有字体和页面质感。 */
+.has-tabbar .my-page { gap:16px; }
+.has-tabbar .my-page .my-next-step { margin-top:0; padding:14px 17px; border:1px solid var(--line); border-left:3px solid var(--brand-line); border-radius:18px; background:var(--surface-soft); box-shadow:none; }
+.has-tabbar .my-next-step h2 { margin:0 0 5px; font-size:13px; font-weight:500; color:var(--muted); }
+.has-tabbar .my-next-step p { margin:0; font-size:12px; line-height:1.85; color:var(--muted); }
+.has-tabbar .my-page .my-section { gap:10px; }
+.has-tabbar .my-section-head { padding:1px 2px; font-size:13px; font-weight:400; color:var(--muted); }
+.has-tabbar .my-page .my-feature-card,.has-tabbar .my-page .my-route-card { min-height:62px; padding:13px 15px; gap:12px; border:1px solid rgba(229,233,235,.85); border-radius:16px; background:var(--surface); box-shadow:none; }
+.has-tabbar .my-page .my-card-icon,.has-tabbar .my-page .my-route-icon { width:34px; height:34px; border-radius:11px; background:var(--brand-soft); color:var(--brand-hover); font-size:17px; box-shadow:none; }
+.has-tabbar .my-card-copy b,.has-tabbar .my-route-card b { font-size:14px; font-weight:500; line-height:1.6; }
+.has-tabbar .my-card-arrow,.has-tabbar .my-route-card i { font-size:20px; color:#a5adb3; }
+.has-tabbar .my-page .my-feature-card:hover,.has-tabbar .my-page .my-route-card:hover { background:var(--surface-soft); border-color:var(--line); }
+.has-tabbar .my-page .my-feature-card:focus-visible,.has-tabbar .my-page .my-route-card:focus-visible { outline:2px solid var(--brand); outline-offset:3px; }
+@media(max-width:600px) { .has-tabbar .my-route-grid { grid-template-columns:1fr; gap:9px; } }
+
+/* Personal context remains compact above the work list. */
+.has-tabbar .my-identity { padding:18px 20px!important; }
+.has-tabbar .my-identity-main { gap:14px; }
+.has-tabbar .my-identity .eyebrow { font-size:12px; line-height:1.6; }
+.has-tabbar .my-identity-actions { margin-top:16px; gap:10px; }
+.has-tabbar .my-identity-actions .btn { min-height:44px; padding:10px 12px; font-size:15px; }
+.has-tabbar .home-hero { padding:20px; background:var(--surface); border:1px solid var(--line); color:var(--ink); box-shadow:none; }
+.has-tabbar .home-hero h1,.has-tabbar .home-hero .hh-status,.has-tabbar .home-hero .hh-person-name { color:var(--ink); }
+.has-tabbar .home-hero .hh-role { color:var(--muted); }
+.has-tabbar .home-hero .hh-avatar { background:var(--brand-soft); color:var(--brand-hover); border-color:var(--brand-line); box-shadow:none; }
+.has-tabbar .home-hero .hh-top { gap:16px; align-items:center; }
+.has-tabbar .home-hero .hh-self { max-width:48%; overflow-x:auto; padding:14px 0; scrollbar-width:thin; }
+.has-tabbar .home-hero .hh-person-card { flex-shrink:0; transform:translateY(8px); }
+.has-tabbar .home-hero .hh-person-card.leader { transform:translateY(-8px); }
+.has-tabbar .home-hero .hh-status { margin-top:8px; }
+.has-tabbar .profile-hero { padding:22px!important; margin-top:10px; }
+.has-tabbar .profile-hero>.avatar { width:64px; height:64px; font-size:26px; margin:0 0 16px; }
+.has-tabbar .profile-hero .eyebrow { font-size:12px; line-height:1.7; }
+.has-tabbar .profile-hero h1 { margin:6px 0 12px; }
+.has-tabbar .profile-headline { font-size:16px; line-height:1.75; margin:0; }
+.has-tabbar[data-page-view="profile"] .work-section { margin-top:16px; padding:20px; }
+.has-tabbar[data-page-view="profile"] .work-section h2 { font-size:18px; margin:0 0 12px; }
+.has-tabbar[data-page-view="profile"] .work-section h2:not(:first-child) { margin-top:20px; }
+.has-tabbar[data-page-view="profile"] .work-section p { font-size:15px; line-height:1.8; }
+.has-tabbar .secondary-back { order:3; flex-basis:100%; margin:0; min-height:44px; }
+.has-tabbar .topbar:has(.secondary-back) { flex-wrap:wrap; row-gap:4px; }
+.has-tabbar .page-back { min-height:44px; display:flex; align-items:center; }
+@media(max-width:350px) { .has-tabbar .home-hero { padding:18px 16px; } .has-tabbar .my-identity-actions .btn { font-size:13px; padding-inline:8px; } }
+
+.has-tabbar .work-summary { gap:12px; margin-bottom:20px; }
+.has-tabbar .work-summary>span { background:var(--surface); border-color:var(--line); border-radius:18px; padding:16px; }
+.has-tabbar #home-work { margin:22px 0; }
+.has-tabbar #home-work>.hc-head { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:14px; }
+.has-tabbar #home-work>.hc-head h2 { margin:0; }
+.has-tabbar #refresh-work { min-height:44px; padding:7px 12px; font-size:13px; }
+.has-tabbar .home-card { margin-bottom:20px; }
+.has-tabbar .my-page { gap:18px; }
+.has-tabbar .my-page>.work-section { margin-top:0; }
+.has-tabbar .my-page .my-next-step { background:var(--surface-soft); box-shadow:none; }
+.has-tabbar .tabbar { background:var(--surface); border-color:var(--line); box-shadow:0 4px 20px rgba(47,49,56,.04); }
+.has-tabbar .tabbar button.active { background:var(--brand-soft); color:var(--brand-hover); }
+.has-tabbar .pc-icon { background:var(--brand-soft); color:var(--brand-hover); box-shadow:none; }
+.has-tabbar .pc-bar i { background:var(--brand); }
+
+/* 目标页的新增入口与计划图标使用轻浅底色，避免深色块压住页面。 */
+.has-tabbar[data-page-view="tasks"] #newtask.btn { background:var(--brand-soft); color:var(--brand-hover); border:1px solid var(--brand-line); box-shadow:none; }
+.has-tabbar[data-page-view="tasks"] #newtask.btn:hover { background:var(--brand-soft); border-color:var(--brand-line); filter:none; }
+.has-tabbar[data-page-view="tasks"] .pc-icon { background:var(--brand-soft); color:var(--brand-hover); border:1px solid var(--brand-line); box-shadow:none; }
+
+/* 清晰的个人卡与榜单：实色浅底，去掉磨砂叠层和深色胶囊。 */
+.has-tabbar .my-identity,.has-tabbar .rank-card,.has-tabbar .my-page .my-service-card { background:var(--surface); backdrop-filter:none; -webkit-backdrop-filter:none; box-shadow:var(--shadow); border:1px solid var(--line); }
+.has-tabbar .my-identity #my-profile.btn,.has-tabbar .my-service-card #my-assessment.btn,.has-tabbar .my-service-card #my-cert.btn { background:var(--brand-soft); color:var(--brand-hover); border:1px solid var(--brand-line); box-shadow:none; }
+.has-tabbar .my-identity #my-edit.btn { background:var(--surface-soft); color:var(--muted); border:1px solid var(--line); }
+.has-tabbar .my-identity .avatar { background:var(--brand-soft); color:var(--brand-hover); border:1px solid var(--brand-line); }
+.has-tabbar .my-identity .eyebrow { color:var(--muted); }
+.has-tabbar .rank-card .hc-head { margin-bottom:16px; }
+.has-tabbar .rank-card .rk-control { grid-template-columns:30px minmax(0,1fr); gap:10px; margin:10px 0; }
+.has-tabbar .rank-card .rk-types { margin:0; padding:3px; background:var(--surface-soft); border:1px solid var(--line); border-radius:14px; box-shadow:none; backdrop-filter:none; -webkit-backdrop-filter:none; }
+.has-tabbar .rank-card .rk-type { padding:0; min-height:44px; }
+.has-tabbar .rank-card .rk-label { padding:10px 6px; font-size:14px; font-weight:500; color:var(--muted); }
+.has-tabbar .rank-card .rk-type.active .rk-label { background:#fff; color:var(--brand-hover); box-shadow:0 1px 4px rgba(47,49,56,.06); }
+.has-tabbar .rank-card .rk-dims { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:6px; margin:0; }
+.has-tabbar .rank-card .rk-dims .btn { padding:8px 2px; min-height:44px; font-size:12px; font-weight:400; border-radius:11px; background:#fff; border:1px solid var(--line); color:var(--muted); }
+.has-tabbar .rank-card .rk-dims .btn[aria-pressed="true"] { background:var(--brand-soft); border-color:var(--brand-line); color:var(--brand-hover); }
+.has-tabbar .rank-card .rk-body { margin-top:18px; }
+.has-tabbar .rank-card .rk-row { display:grid; grid-template-columns:24px 32px minmax(0,1fr); gap:8px 10px; padding:14px 10px; margin:0; border-bottom:1px solid var(--line); }
+.has-tabbar .rank-card .rk-row.me { background:var(--brand-soft); border:1px solid var(--brand-line); border-radius:14px; }
+.has-tabbar .rank-card .rk-row .avatar { background:var(--brand-soft); color:var(--brand-hover); }
+.has-tabbar .rank-card .rk-name { font-weight:500; }
+.has-tabbar .rank-card .rk-me { background:var(--brand-soft); color:var(--brand-hover); box-shadow:none; }
+.has-tabbar .rank-card .rk-val { grid-column:2 / -1; text-align:left; display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 8px; }
+.has-tabbar .rank-card .rk-val b { background:none; color:var(--ink); font-size:20px; font-weight:500; }
+.has-tabbar .rank-card .rk-val i { color:var(--muted); line-height:1.6; margin:0; }
+.has-tabbar .rank-card .rk-val i:last-child { flex-basis:100%; }
+
+/* ------------------------------------------------------------------
+   Mobile interaction pass: narrow screens, on-screen keyboards and
+   edge-to-edge devices. These rules intentionally apply only below the
+   tablet breakpoint, leaving the information-dense desktop workflow intact.
+   ------------------------------------------------------------------ */
+@media (max-width: 600px) {
+  html, body { overflow-x: clip; }
+  #app, main, #content, .side-main, .card, .dialog, .form-grid > * { min-width: 0; }
+
+  /* iOS zooms the page when a focused field is smaller than 16px. */
+  input:not([type="checkbox"]):not([type="radio"]), select, textarea {
+    font-size: 16px;
+  }
+
+  /* Keep primary controls comfortably tappable without inflating compact
+     composer controls such as add/remove slot buttons. */
+  .btn, .ghost, .linkbtn, .check, .page-back, .account-button,
+  .market-check, .tabs button, .side-item {
+    min-height: 44px;
+  }
+  .linkbtn { display: inline-flex; align-items: center; justify-content: center; }
+  .account-button { min-width:44px; display:inline-flex; align-items:center; justify-content:center; }
+  .has-tabbar .topbar { padding-top:calc(10px + env(safe-area-inset-top)); padding-right:max(18px, env(safe-area-inset-right)); padding-left:max(18px, env(safe-area-inset-left)); }
+  .check { min-width: 44px; min-height: 44px; margin: -8px 0 -8px -8px; }
+  .network-status { top:calc(6px + env(safe-area-inset-top)); width:calc(100% - 20px); padding:10px 10px 10px 12px; font-size:13px; }
+  .network-retry { min-height:44px; padding-inline:12px; }
+
+  /* Bottom sheets keep their actions reachable above gesture areas and retain
+     native momentum scrolling when the keyboard reduces the visual viewport. */
+  .overlay {
+    padding: max(8px, env(safe-area-inset-top)) 0 0;
+    overscroll-behavior: contain;
+  }
+  .dialog {
+    max-height: min(92dvh, calc(100dvh - max(8px, env(safe-area-inset-top))));
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    scroll-padding: 16px 0 calc(84px + env(safe-area-inset-bottom));
+  }
+  .dialog :is(input, select, textarea, button) { scroll-margin-block: 18px; }
+  .dlg-actions {
+    position: sticky; bottom: calc(-20px - env(safe-area-inset-bottom));
+    padding: 12px 0 calc(12px + env(safe-area-inset-bottom));
+    margin-bottom: calc(-20px - env(safe-area-inset-bottom));
+    background: linear-gradient(to bottom, rgba(255,255,255,0), #fff 28%);
+  }
+
+  /* Long labels, URLs and imported plan text must wrap instead of widening
+     the viewport. */
+  .task, .note, .person-card, .plan-card, .goal-stage, .history-records,
+  .market-results-head, .work-row, .profile-metrics {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+  .task .tbody, .note .nbody, .person-card-title, .work-row > *, .profile-metrics > * { min-width: 0; }
+
+  /* Reclaim reading space in long cards. Scrolling upward always brings
+     navigation back before the next action is needed. */
+  .has-tabbar .tabbar {
+    transition: transform .2s ease, opacity .2s ease;
+  }
+  body.tabbar-collapsed .tabbar {
+    transform: translate(-50%, calc(100% + 26px + env(safe-area-inset-bottom)));
+    opacity: .02;
+    pointer-events: none;
+  }
+}
+
+@media (max-width: 380px) {
+  .has-tabbar #content { padding-inline: 12px; }
+  .has-tabbar .tabbar { width: calc(100% - 20px); }
+  .has-tabbar .tabbar button { font-size: 10px; padding-inline: 2px; }
+  .has-tabbar .work-summary { gap: 7px; }
+  .has-tabbar .work-summary > span { padding: 11px 9px; }
+}

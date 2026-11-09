@@ -1,0 +1,23 @@
+﻿'use strict';
+const fs = require('fs');
+const path = require('path');
+const { spawnSync } = require('child_process');
+const { getDb } = require('../src/db');
+
+const db = getDb();
+const integrity = db.prepare('PRAGMA integrity_check').get().integrity_check;
+const requiredTables = ['users', 'plans', 'plan_days', 'tasks', 'life_logs', 'notifications', 'sessions', 'notification_outbox', 'audit_logs', 'scheduler_leases', 'supervision_relations', 'service_reviews', 'user_profiles', 'certifications', 'service_requests', 'request_messages'];
+const tables = new Set(db.prepare("SELECT name FROM sqlite_master WHERE type='table'").all().map((row) => row.name));
+const missingTables = requiredTables.filter((name) => !tables.has(name));
+const requiredIndexes = ['idx_tasks_reminder', 'idx_tasks_remind_at', 'idx_tasks_overdue_at', 'idx_tasks_overdue_escalation', 'idx_notifications_unread', 'idx_outbox_due', 'idx_audit_created', 'idx_scheduler_lease_until', 'idx_relations_supervisor', 'idx_relations_supervisee', 'idx_reviews_supervisor', 'idx_reviews_reviewer'];
+const indexes = new Set(db.prepare("SELECT name FROM sqlite_master WHERE type='index'").all().map((row) => row.name));
+const missingIndexes = requiredIndexes.filter((name) => !indexes.has(name));
+const publicJsDir = path.join(__dirname, '..', 'public', 'js');
+const publicScripts = fs.readdirSync(publicJsDir).filter((name) => name.endsWith('.js')).map((name) => path.join(publicJsDir, name));
+const syntaxFailures = publicScripts.filter((file) => spawnSync(process.execPath, ['--check', file], { encoding: 'utf8' }).status !== 0).map((file) => path.relative(process.cwd(), file));
+const dangerousScripts = publicScripts.filter((file) => /document\.write|eval\(|new Function|javascript:/i.test(fs.readFileSync(file, 'utf8'))).map((file) => path.relative(process.cwd(), file));
+const serviceWorker = fs.readFileSync(path.join(__dirname, '..', 'public', 'sw.js'), 'utf8');
+const serviceWorkerApiGuard = serviceWorker.includes("url.pathname.startsWith('/api/')") && serviceWorker.includes('return;');
+const result = { ok: integrity === 'ok' && !missingTables.length && !missingIndexes.length && !syntaxFailures.length && !dangerousScripts.length && serviceWorkerApiGuard, integrity, missingTables, missingIndexes, syntaxFailures, dangerousScripts, serviceWorkerApiGuard };
+console.log(JSON.stringify(result, null, 2));
+if (!result.ok) process.exitCode = 1;

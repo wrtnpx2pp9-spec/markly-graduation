@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#f5f4f2" />
+  <meta name="description" content="Markly 帮你与监督伙伴约定目标、安排每一天，并记录执行、反馈和共同进步。" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Markly" />
+  <title>Markly · 生活与学习监督</title>
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="/icons/icon-180.png" />
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="/components.css" />
+  <link rel="stylesheet" href="/admin.css" />
+  <link rel="stylesheet" href="/mobile.css" />
+  <link rel="stylesheet" href="/goal-plan.css" />
+  <link rel="stylesheet" href="/identity-cards.css" />
+  <link rel="stylesheet" href="/registration.css" />
+  <link rel="stylesheet" href="/clear-theme.css" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%236260a8'/%3E%3Cpath d='M9 22V10l7 8 7-8v12' fill='none' stroke='white' stroke-width='2.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+</head>
+<body>
+  <div id="app">
+    <main class="startup-state" data-startup role="status" aria-live="polite">
+      <span class="auth-mark" aria-hidden="true">M</span>
+      <h1>Markly</h1>
+      <p>正在准备你的页面…</p>
+    </main>
+  </div>
+  <noscript><p class="startup-state">请开启浏览器的 JavaScript 后使用 Markly。</p></noscript>
+  <div id="modal"></div>
+  <script src="/js/core.js"></script>
+  <script src="/js/components.js"></script>
+  <script src="/js/identity-cards.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/shell.js"></script>
+  <script src="/js/tasks.js"></script>
+  <script src="/js/phase.js"></script>
+  <script src="/js/life.js"></script>
+  <script src="/js/notes.js"></script>
+  <script src="/js/settings.js"></script>
+  <script src="/js/admin.js"></script>
+  <script src="/js/home.js"></script>
+  <script src="/js/experience.js"></script>
+  <script src="/js/cooperation-history.js"></script>
+  <script src="/js/goal-composer.js"></script>
+  <script src="/js/goal-workspace.js"></script>
+  <script src="/js/plan-import.js"></script>
+  <script src="/js/daily-planning.js"></script>
+  <script src="/js/identity.js"></script>
+  <script src="/js/registration.js"></script>
+  <script src="/js/intake.js"></script>
+  <script src="/js/boot.js"></script>
+  <script>
+    // PWA：注册 Service Worker（需 HTTPS 或 localhost）
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
+    }
+  </script>
+<script src="/js/date-picker.js"></script>
+</body>
+</html>

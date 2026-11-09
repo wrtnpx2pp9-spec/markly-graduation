@@ -1,0 +1,61 @@
+/* Markly management workspace */
+.app-shell { background: var(--bg); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", sans-serif; color: var(--ink); }
+.app-shell .side { background: #fff; border-color: var(--line); }
+.app-shell .side-brand b { display: block; font-size: 21px; letter-spacing: -.7px; }
+.app-shell .side-main main { margin: 0 auto; padding-bottom: 40px; }
+.app-shell .card { background: #fff; border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 3px 12px rgba(30,40,60,.025); backdrop-filter:none; }
+.app-shell h1 { font-size: 26px; font-weight: 700; letter-spacing: -.7px; }
+.app-shell h2 { font-size: 16px; font-weight: 600; }
+.app-shell .btn { box-shadow: none; border-radius: 10px; }
+.app-shell .side-item.active { background: var(--brand-soft); color: var(--brand-hover); box-shadow: none; }
+.overview-eyebrow { font-size: 10px; letter-spacing: 1.7px; color: var(--muted); margin-bottom: 8px; font-weight: 600; }
+.overview-intro { margin: 8px 0 0; font-size: 13px; color: var(--muted); }
+.admin-overview .page-head { margin-bottom: 22px; gap: 12px; }
+.admin-overview .stats { gap: 12px; margin-bottom: 20px; }
+.admin-overview .stat { text-align: left; padding: 20px; display: flex; flex-direction: column-reverse; gap: 12px; }
+.admin-overview .stat .num { font-size: 30px; font-weight: 600; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.admin-overview .stat .lbl { font-size: 12px; color: var(--muted); }
+.admin-overview .ok { color: var(--ok); }
+.admin-overview .danger { color: var(--danger); }
+.admin-overview .dbl { align-items: start; }
+.admin-overview .tile-flex { display: flex; flex-direction: column; align-items: stretch; gap: 18px; }
+.admin-overview .tile-main { flex: none; width: 100%; min-width: 0; }
+.admin-overview .arcglass[hidden] { display: none; }
+.admin-overview .mstats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.admin-overview .mstat { background: var(--bg); border-radius: 12px; padding: 14px 10px; }
+.admin-overview .mstat b { font-size: 22px; font-weight: 600; }
+.admin-overview .mstat span { font-size: 12px; }
+.overview-completion { border-top: 1px solid var(--line); padding-top: 16px; font-size: 12px; color: var(--muted); }
+.overview-completion b { color: var(--ink); font-size: 13px; }
+.overview-progress { background: var(--surface-soft); height: 7px; border-radius: 8px; overflow: hidden; margin-top: 12px; }
+.overview-progress i { display: block; height: 100%; background: var(--ok); border-radius: inherit; }
+.overview-completion p { margin: 10px 0 0; font-size: 11px; }
+.admin-trend { height: 150px; display: flex; align-items: end; gap: 10px; padding: 8px 4px 0; }
+.trend-day { height: 100%; flex: 1; min-width: 28px; display: flex; flex-direction: column; align-items: center; justify-content: end; gap: 5px; font-size: 10px; color: var(--muted); }
+.trend-bars { height: 105px; width: 100%; display: flex; align-items: end; justify-content: center; gap: 3px; }
+.trend-bars i, .trend-bars em { display: block; width: min(15px,38%); min-height: 3px; border-radius: 5px 5px 2px 2px; background: var(--brand); }
+.trend-bars em { background: var(--ok); }
+.trend-day b { font-size: 11px; color: var(--ink); }
+@media (max-width: 900px) {
+  .app-shell .side { display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: calc(14px + env(safe-area-inset-top)) 16px 10px; }
+  .app-shell .side-brand { grid-column: 1; grid-row: 1; }
+  .app-shell .side-foot { grid-column: 2; grid-row: 1; }
+  .app-shell .side-nav { grid-column: 1 / -1; grid-row: 2; width: 100%; gap: 4px; }
+  .app-shell .side-item { flex: 1 0 auto; justify-content: center; padding: 10px 12px; font-size: 13px; border-radius: 10px; }
+  .app-shell .side-main main { padding: 22px 16px 32px; }
+  .admin-overview .page-head { align-items: center; }
+  .admin-overview .page-head .btn { flex-shrink: 0; font-size: 12px; padding: 10px 12px; }
+  .admin-overview .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .admin-overview .stat { padding: 16px; }
+  .admin-overview .dbl { display: grid; grid-template-columns: 1fr; gap: 14px; }
+}
+@media (max-width: 360px) {
+  .app-shell .side-item { padding: 10px 8px; font-size: 12px; }
+  .admin-overview .page-head { flex-wrap: wrap; }
+}
+
+.report-section { margin-top: 8px; }
+.report-chart-row { gap: 8px; margin-top: 6px; }
+.report-chart-label { width: 96px; }
+.report-chart-track { height: 9px; flex: 1; background: var(--surface-soft); border-radius: 8px; overflow: hidden; }
+.report-chart-bar { display: block; height: 100%; background: var(--brand); }

@@ -1,0 +1,162 @@
+/* Planning editor: touch-friendly typography and shallow tree hierarchy. */
+.dialog.goal-dialog {
+  --goal-text:var(--ink); --goal-muted:var(--muted); --goal-line:var(--line);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif;
+  color:var(--goal-text); width:100%; max-width:640px; max-height:92dvh;
+  padding:22px; border-radius:22px; background:#fff; box-shadow:0 24px 80px #20273726;
+}
+.goal-dialog::before { display:none; }
+.goal-dialog>h3 { font:600 20px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif; margin:0 0 6px; }
+.goal-dialog .goal-tree-save { font-size:12px; line-height:1.5; color:var(--goal-muted); margin:0 0 16px; }
+.goal-dialog>.goal-composer,.goal-dialog>.goal-preview { padding:0 2px 16px; overscroll-behavior:contain; scrollbar-width:thin; scroll-padding:12px; }
+.goal-dialog .goal-composer { gap:18px; }
+.goal-dialog .goal-composer-tip { background:var(--surface-soft); color:var(--muted); padding:12px 14px; border-radius:12px; font-size:13px; line-height:1.7; }
+.goal-dialog .goal-composer label { gap:8px; margin:0; font-size:14px; line-height:1.5; color:var(--muted); }
+.goal-dialog input,.goal-dialog textarea,.goal-dialog select {
+  box-sizing:border-box; width:100%; min-width:0; min-height:46px; margin:0; padding:11px 12px;
+  border:1px solid var(--control-border); border-radius:10px; background:#fff; color:var(--goal-text);
+  font:400 16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif;
+  box-shadow:none;
+}
+.goal-dialog input::placeholder,.goal-dialog textarea::placeholder { color:#737784; }
+.goal-dialog input:focus,.goal-dialog textarea:focus { border-color:var(--brand); outline:2px solid var(--brand-soft); outline-offset:1px; }
+.goal-dialog textarea { min-height:84px; resize:vertical; }
+.goal-dialog .select-trigger { min-height:46px; font-size:16px; font-family:inherit; padding:10px 12px; box-shadow:none; background:#fff; }
+.goal-dialog .btn,.goal-dialog .linkbtn { font-family:inherit; font-size:14px; line-height:1.4; min-height:44px; padding:10px 14px; border-radius:10px; box-shadow:none; }
+.goal-dialog .btn.soft { background:var(--surface-soft); color:var(--muted); }
+.goal-dialog .goal-route-head { margin:6px 0 -6px; align-items:center; }
+.goal-dialog .goal-route-head b { font-size:17px; font-weight:600; }
+.goal-dialog small { font-size:13px; line-height:1.6; }
+.goal-dialog .goal-tree-root details>summary { list-style:none; position:relative; min-height:56px; box-sizing:border-box; padding:13px 26px 13px 8px; line-height:1.5; -webkit-tap-highlight-color:transparent; }
+.goal-dialog summary::-webkit-details-marker { display:none; }
+.goal-dialog .goal-tree-root details>summary::after {
+  content:""; position:absolute; right:10px; top:24px; width:7px; height:7px;
+  border-right:1.5px solid var(--muted); border-bottom:1.5px solid var(--muted); transform:rotate(-45deg); transition:transform .18s var(--ease);
+}
+.goal-dialog .goal-tree-root details[open]>summary::after { transform:rotate(45deg); top:21px; }
+.goal-dialog .goal-tree-root summary:focus-visible { outline:2px solid var(--brand); outline-offset:1px; border-radius:8px; }
+.goal-dialog .goal-tree-root summary b { font-size:15px; line-height:1.5; font-weight:600; }
+.goal-dialog .goal-tree-root summary small { padding-top:4px; font-size:13px; line-height:1.5; color:var(--goal-muted); font-weight:400; }
+.goal-dialog .goal-tree-stage { margin:0 0 12px; border:1px solid var(--line); border-radius:14px; padding:4px 10px 8px; background:#fff; }
+.goal-dialog .goal-tree-stage>summary { display:flex; align-items:flex-start; gap:10px; padding:14px 26px 14px 2px; }
+.goal-dialog .goal-tree-stage>summary .goal-stage-index { display:grid; flex:0 0 30px; width:30px; height:30px; margin:0; background:var(--brand-soft); color:var(--brand-hover); border-radius:9px; font-size:14px; }
+.goal-dialog .goal-tree-stage>summary>span:last-child { max-width:none; flex:1; min-width:0; }
+.goal-dialog .goal-tree-stage>summary b { font-size:16px; }
+.goal-dialog .goal-tree-branch { margin:0; padding:0 0 0 6px; border-left:0; }
+.goal-dialog .goal-tree-week { border-top:1px solid var(--goal-line); }
+.goal-dialog .goal-tree-week>summary { padding-left:4px; }
+.goal-dialog .goal-tree-week>summary b { color:var(--ink); font-size:14px; }
+.goal-dialog .goal-tree-day { border:0; border-top:1px solid var(--line); margin:0; }
+.goal-dialog .goal-tree-day[open] { background:var(--surface-soft); border-radius:12px; border:1px solid var(--line); margin:5px 0 10px; }
+.goal-dialog .goal-tree-day>summary { padding-left:10px; }
+.goal-dialog .goal-tree-day-fields { gap:16px; padding:4px 10px 14px; }
+.goal-dialog .goal-tree-day-fields>.goal-tree-branch { margin:0; padding:0; }
+.goal-dialog .goal-tree-fields { gap:16px; padding:6px 8px 16px; }
+.goal-dialog .goal-tree-slot { border:1px solid var(--line); border-radius:10px; margin:0 0 8px; background:#fff; }
+.goal-dialog .goal-tree-slot>summary { padding-left:10px; }
+.goal-dialog .goal-tree-slot>summary b { font-size:14px; }
+.goal-dialog .goal-tree-root [data-stage-settings]>summary,.goal-dialog .goal-tree-root [data-week-settings]>summary { min-height:44px; padding:11px 26px 11px 8px; font-size:13px; color:var(--muted); }
+.goal-dialog .goal-tree-root [data-stage-settings]>summary::after,.goal-dialog .goal-tree-root [data-week-settings]>summary::after { top:17px; }
+.goal-dialog .form-grid { gap:10px; }
+.goal-dialog .goal-rest-toggle { gap:10px; min-height:44px; font-size:13px; }
+.goal-dialog input[type="checkbox"] { flex:0 0 20px; width:20px; height:20px; min-height:20px; padding:0; accent-color:var(--brand); }
+.goal-dialog .goal-template-tools { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+.goal-dialog .goal-template-tools .btn { width:100%; padding:10px 8px; font-size:13px; text-align:center; }
+.goal-dialog .goal-add-stage { display:flex; flex-direction:row; flex-wrap:wrap; gap:8px; justify-content:flex-start; }
+.goal-dialog .goal-add-stage .btn { min-width:62px; }
+.goal-dialog>.dlg-actions { margin:0 -2px; padding:14px 2px 0; border-top:1px solid var(--goal-line); gap:10px; background:#fff; }
+.goal-dialog>.dlg-actions .btn { min-height:48px; font-size:15px; font-weight:500; }
+.goal-dialog #modal-cancel { flex:1; color:var(--muted); background:var(--surface-soft); }
+.goal-dialog #modal-ok { flex:1.25; }
+.goal-dialog .goal-week>summary,.goal-dialog .goal-preview-day>summary { min-height:48px; padding:10px 4px; font-size:15px; }
+.goal-dialog .goal-preview li { font-size:15px; line-height:1.7; padding:3px 0; }
+@media(max-width:600px){
+  #modal .overlay:has(.goal-dialog) { padding:8px; align-items:flex-end; }
+  #modal .goal-dialog { max-width:none; max-height:calc(100dvh - 16px); padding:18px 14px max(14px,env(safe-area-inset-bottom)); border-radius:20px; }
+  .goal-dialog>h3 { font-size:19px; }
+  .goal-dialog .goal-tree-stage { padding-left:7px; padding-right:7px; }
+  .goal-dialog .goal-tree-branch { padding-left:3px; }
+  .goal-dialog .goal-tree-stage>summary small { font-size:12px; }
+  .goal-dialog .goal-tree-day-fields { padding-left:8px; padding-right:8px; }
+  .goal-dialog .goal-tree-fields { padding-left:6px; padding-right:6px; }
+  .goal-dialog .goal-tree-root summary small { font-size:12px; }
+}
+@media(max-width:360px){
+  .goal-dialog .goal-tree-slot .form-grid { grid-template-columns:1fr; }
+}
+
+/* Keep context and actions stable while only the middle work area changes. */
+.goal-workspace-header{flex-shrink:0;padding-bottom:14px}
+.goal-workspace-header>p{margin:0 0 4px;color:var(--ink);font-size:14px;line-height:1.5;overflow-wrap:anywhere}
+.goal-workspace-header>small{display:block;font-size:12px;color:var(--muted);min-height:20px}
+.goal-mobile-journey{display:none}
+.goal-mode-switch{display:grid;grid-template-columns:1fr 1fr;gap:4px;background:var(--surface-soft);padding:4px;border-radius:12px;margin-top:12px}
+.goal-mode-switch button{min-height:44px;padding:10px;border:0;border-radius:9px;background:transparent;color:var(--muted);font-family:inherit;font-size:15px;font-weight:500;line-height:1.4;cursor:pointer;transition:background .18s var(--ease),color .18s var(--ease),box-shadow .18s var(--ease)}
+.goal-mode-switch button[aria-pressed=true]{color:var(--brand-hover);background:#fff;box-shadow:0 1px 4px rgba(47,49,56,.06)}
+.goal-basics,.goal-route-week{border:1px solid var(--line);border-radius:12px;padding:4px 10px;margin-bottom:10px}
+.goal-basics>summary,.goal-route-week>summary,.goal-week-brief>summary{cursor:pointer;min-height:48px;padding:12px 4px;font-size:15px;line-height:1.5;overflow-wrap:anywhere}
+.goal-basics>summary small,.goal-route-week>summary small,.goal-week-brief>summary small{display:block;color:var(--muted);font-size:12px;line-height:1.6;margin-top:4px}
+.goal-week-work{display:grid;gap:14px;min-width:0}
+.goal-week-switch{display:grid;grid-template-columns:44px minmax(0,1fr) 44px;gap:8px;align-items:center}
+.goal-week-switch>.btn{font-size:24px;padding:4px;min-height:46px}
+.goal-week-switch label{min-width:0}
+.goal-week-switch .select-trigger{font-size:14px;padding:10px 8px}
+.goal-week-context{margin:0;color:var(--muted);font-size:13px}
+.goal-week-brief{border-bottom:1px solid var(--line)}
+.goal-workload{background:var(--brand-soft);color:var(--brand-hover);border-radius:10px;padding:12px;font-size:13px;line-height:1.6}
+.goal-week-tools{display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+.goal-week-tools>small{font-size:12px;color:var(--muted)}
+.goal-focused-days{padding:0 1px}
+.goal-focused-days .goal-tree-day{padding:0}
+.goal-focused-days .goal-tree-day>summary{padding-top:15px;padding-bottom:15px}
+.goal-focused-days .goal-tree-slot{border:0;border-top:1px solid var(--line);border-radius:0;background:transparent;margin-bottom:0}
+.goal-focused-days .goal-tree-slot[open]{background:#fff;border-radius:10px}
+.goal-time-list{display:grid;gap:0}
+.goal-next-week{display:flex;justify-content:flex-end;padding:10px 0}
+.goal-issues{display:grid;gap:8px;background:var(--warn-soft);border-radius:12px;padding:14px}
+.goal-issues p{margin:0;font-size:13px;color:var(--warn)}
+.goal-issues .btn{width:100%;text-align:left;white-space:normal}
+.goal-dialog .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* Import has one calm reading column; calendars retain their focused week workspace. */
+.goal-dialog .goal-mode-switch:has(button:nth-child(3)){grid-template-columns:repeat(3,minmax(0,1fr))}
+.goal-dialog.plan-import-dialog{max-width:680px;background:var(--surface)}
+.plan-import-page{overflow:auto;min-height:0;padding:0 3px 8px;scrollbar-width:thin;overscroll-behavior:contain}
+.plan-import-hero{padding:12px 4px 22px}
+.goal-dialog .plan-kicker{font-size:12px;font-weight:600;letter-spacing:.06em;color:var(--brand)}
+.goal-dialog .plan-import-hero h2{font-size:29px;line-height:1.35;letter-spacing:-.025em;margin:12px 0;color:var(--ink);font-weight:650}
+.goal-dialog .plan-import-hero p,.plan-review-intro>p{font-size:14px;line-height:1.8;color:var(--muted);margin:0;max-width:460px}
+.plan-input-card{background:white;border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:0 4px 18px rgba(47,49,56,.025)}
+.plan-input-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px;color:var(--ink);font-size:15px}
+.goal-dialog .plan-input-heading .linkbtn{font:inherit;color:var(--brand);min-height:44px;padding:8px 0}
+.goal-dialog .plan-file-target{position:relative;display:flex;align-items:center;gap:12px;padding:16px 12px;border:1px dashed var(--brand-line);border-radius:12px;background:var(--surface-soft);cursor:pointer;margin:0 0 12px;overflow:hidden}
+.plan-file-target input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer}
+.plan-file-target:focus-within{outline:2px solid var(--brand);outline-offset:2px}
+.plan-file-icon{display:grid;place-items:center;font-size:23px;color:var(--brand-hover);width:34px;height:38px;background:var(--brand-soft);border-radius:9px;flex-shrink:0}
+.plan-file-target>span:last-child{min-width:0}.plan-file-target b{font-size:14px;display:block;overflow-wrap:anywhere}
+.goal-dialog .plan-file-target small,.goal-dialog .plan-input-card>small{display:block;font-size:12px;line-height:1.7;color:var(--muted);margin-top:3px}
+.goal-dialog #plan-import-text{min-height:145px;height:145px;resize:vertical;border:0;border-radius:8px;background:var(--surface-soft);padding:12px;font-size:16px;line-height:1.65;box-shadow:none;width:100%;margin:0}
+.goal-dialog #plan-import-text:focus{outline:2px solid var(--brand);outline-offset:1px}
+.goal-dialog .plan-import-settings{border-bottom:1px solid var(--line);margin:12px 0}
+.plan-import-settings>summary{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:16px 4px;min-height:56px;cursor:pointer;list-style:none}
+.plan-import-settings>summary:after{content:'⌄';color:var(--muted)}.plan-import-settings[open]>summary:after{content:'⌃'}
+.plan-import-settings>summary b{font-size:14px;white-space:nowrap}.plan-import-settings>summary small{font-size:12px;color:var(--muted);text-align:right;line-height:1.6}
+.plan-field-label{display:block;font-size:14px;margin-bottom:8px}
+.plan-weekdays{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px;margin-bottom:8px}
+.goal-dialog .plan-weekdays label{position:relative;margin:0;min-width:0}.plan-weekdays input{position:absolute;opacity:0;width:100%;height:100%;margin:0}
+.plan-weekdays span{display:grid;place-items:center;min-height:44px;border:1px solid var(--line);border-radius:9px;font-size:15px;cursor:pointer;background:white;color:var(--muted);transition:background .18s var(--ease),border-color .18s var(--ease),color .18s var(--ease)}
+.plan-weekdays input:checked+span{background:var(--brand-soft);border-color:var(--brand-line);color:var(--brand-hover)}.plan-weekdays input:focus-visible+span{outline:2px solid var(--brand);outline-offset:2px}
+.goal-dialog .plan-import-footnote{font-size:12px;line-height:1.8;color:var(--muted);padding:0 4px;margin:16px 0 4px}
+.plan-inline-error{color:var(--danger);font-size:14px;line-height:1.7;white-space:pre-wrap}
+.plan-draft-row{display:flex;align-items:center;justify-content:space-between;gap:14px;background:transparent;border:0;border-top:1px solid var(--line);width:100%;padding:14px 4px;text-align:left;font-family:inherit;cursor:pointer;min-height:64px;color:var(--ink)}
+.plan-draft-row b{font-size:14px;font-weight:500}.plan-draft-row small{display:block;font-size:12px;color:var(--muted);margin-top:5px}.plan-saved-drafts h3{font-size:14px;margin:18px 0 10px}
+.plan-review-intro{padding:8px 4px 16px}.plan-review-intro h2{font-size:23px;color:var(--ink);line-height:1.5;margin:10px 0;overflow-wrap:anywhere}
+.plan-import-metrics{display:grid;grid-template-columns:repeat(4,1fr);background:var(--surface-soft);border-radius:12px;margin-top:18px;padding:14px 4px}
+.plan-import-metrics span{text-align:center;color:var(--muted);font-size:11px}.plan-import-metrics b{display:block;color:var(--ink);font-size:23px;font-weight:600;margin-bottom:4px}
+.plan-review-card{border:1px solid var(--line);background:#fff;border-radius:12px;padding:14px;margin:12px 0;overflow-wrap:anywhere}
+.plan-review-card h3{font-size:15px;margin:0 0 8px}.plan-review-card p{font-size:13px;line-height:1.8;color:var(--muted);margin:8px 0}.plan-review-card>summary{cursor:pointer;min-height:44px;line-height:1.6;display:flex;align-items:center;font-size:14px}
+.plan-source-line{padding:14px 0;border-top:1px solid var(--line)}.plan-source-line small{font-size:12px;color:var(--warn)}.plan-source-line p{color:var(--ink)}.plan-source-text p{border-bottom:1px solid var(--line);padding:8px 0;white-space:pre-wrap}.plan-source-text small{display:block;color:var(--muted);font-size:11px}
+.goal-dialog .plan-review-confirm{display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.8;padding:14px 4px;margin:0}.plan-review-confirm input{flex:0 0 22px;width:22px;height:22px;min-height:22px;margin:2px 0;accent-color:var(--brand)}
+.plan-import-dialog #modal-ok{background:var(--brand);border-color:var(--brand);color:#fff}.plan-import-dialog #modal-cancel{color:var(--muted)}
+.plan-import-page button:disabled{opacity:.5;cursor:wait}
+@media(max-width:600px){.goal-dialog .plan-import-hero h2{font-size:27px}.plan-import-hero{padding:4px 2px 18px}.plan-input-card{padding:12px}.goal-dialog .goal-mode-switch button{font-size:14px;padding:10px 4px}.plan-review-intro h2{font-size:21px}.goal-dialog .plan-import-settings .form-grid{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}.goal-mobile-journey{display:block;margin-top:10px;padding:8px 9px;border:1px solid var(--line);border-radius:12px;background:var(--surface-soft)}.goal-mobile-journey>div{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px}.goal-mobile-journey button{min-height:44px;border:0;border-radius:8px;background:transparent;color:var(--muted);font:inherit;font-size:12px;font-weight:500;line-height:1.2;cursor:pointer}.goal-mobile-journey button[aria-current=true]{background:#fff;color:var(--brand-hover);box-shadow:0 1px 3px rgba(47,49,56,.06)}.goal-mobile-journey small{display:block;margin-top:7px;color:var(--muted);font-size:12px;line-height:1.5;text-align:center}}

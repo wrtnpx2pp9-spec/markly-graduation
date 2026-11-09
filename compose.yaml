@@ -1,0 +1,29 @@
+services:
+  markly:
+    build: .
+    image: markly:${MARKLY_IMAGE_TAG:-local}
+    init: true
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      HOST: 0.0.0.0
+      PORT: 8787
+      DB_PATH: /app/data/app.db
+      ILINK_STATE_DIR: /app/data/ilink-state
+      BACKUP_DIR: /app/data/backups
+    ports:
+      - "127.0.0.1:8787:8787"
+    volumes:
+      - markly-data:/app/data
+    stop_grace_period: 60s
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+volumes:
+  markly-data:

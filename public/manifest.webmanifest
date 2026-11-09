@@ -1,0 +1,18 @@
+{
+  "id": "/",
+  "name": "Markly · 生活与学习监督",
+  "short_name": "Markly",
+  "description": "生活记录与学习监督：任务打卡、监督计划、双向提醒。",
+  "lang": "zh-CN",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f5f4f2",
+  "theme_color": "#f5f4f2",
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
